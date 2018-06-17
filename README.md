@@ -17,7 +17,7 @@ Then, copy `/var/piler/www/config-site.php` to `/usr/local/etc/piler/config-site
 
     services:
       piler:
-        build: ./docker-piler
+        build: https://github.com/alexhorn/docker-piler.git
         depends_on:
           - piler-db
         ports:
