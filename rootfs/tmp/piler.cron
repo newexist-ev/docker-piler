@@ -1,0 +1,10 @@
+### PILERSTART
+5,35 * * * * /usr/local/libexec/piler/indexer.delta.sh
+30   2 * * * /usr/local/libexec/piler/indexer.main.sh
+3 * * * * /usr/local/libexec/watch_sphinx_main_index.sh
+*/15 * * * * /usr/bin/indexer --quiet tag1 --rotate --config /usr/local/etc/piler/sphinx.conf
+*/15 * * * * /usr/bin/indexer --quiet note1 --rotate --config /usr/local/etc/piler/sphinx.conf
+30   6 * * * /usr/bin/php /usr/local/libexec/piler/generate_stats.php --webui /var/piler/www >/dev/null
+*/5 * * * * /usr/bin/find /var/piler/error -type f|wc -l > /var/piler/stat/error
+*/5 * * * * /usr/bin/find /var/piler/www/tmp -type f -name i.\* -exec rm -f {} \;
+### PILEREND
