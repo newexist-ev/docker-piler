@@ -22,15 +22,16 @@ Then, copy `/var/piler/www/config-site.php` to `/usr/local/etc/piler/config-site
           - piler-db
         ports:
           - "80:80"
+        restart: always
         volumes:
           - /var/lib/docker-piler/local:/usr/local/etc/piler
           - /var/lib/docker-piler/piler:/var/piler
 
       piler-db:
         image: mariadb:latest
+        restart: always
         volumes:
           - /var/lib/docker-piler/mysql:/var/lib/mysql
-        restart: unless-stopped
         environment:
           MYSQL_ROOT_PASSWORD: "changeme"
           MYSQL_DATABASE: "piler"
