@@ -15,7 +15,7 @@ RUN groupadd piler \
 	&& make install \
 	&& cd .. \
 	&& mkdir piler \
-	&& curl -L https://bitbucket.org/jsuto/piler/downloads/piler-1.3.9.tar.gz | tar xvz --strip=1 -C piler \
+	&& curl -L https://bitbucket.org/jsuto/piler/downloads/piler-1.3.11.tar.gz | tar xvz --strip=1 -C piler \
 	&& cd piler \
 	&& ./configure --localstatedir=/var --with-database=mysql --enable-tcpwrappers \
 	&& make \
